@@ -1,6 +1,7 @@
 from flask import Flask, request
 from APItasks import get_data_for_one_season, get_data_for_all_seasons, generate_Elo_For_New_Games
 from calculateData import bettingOdds
+import os
 app = Flask(__name__)
 
 @app.route('/')
