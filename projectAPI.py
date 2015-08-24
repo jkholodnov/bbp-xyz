@@ -1,10 +1,14 @@
 from flask import Flask, request
+from flask.ext.cors import CORS, cross_origin
 from APItasks import get_data_for_one_season, get_data_for_all_seasons, generate_Elo_For_New_Games
 from calculateData import bettingOdds
 import os
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/')
+@cross_origin
 def hello_world():
     print('Hello')
 
