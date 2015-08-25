@@ -4,10 +4,8 @@ from APItasks import get_data_for_one_season, get_data_for_all_seasons, generate
 from calculateData import bettingOdds
 import os
 app = Flask(__name__)
-cors = CORS(app)
 
 @app.route('/')
-@cross_origin
 def hello_world():
     print('Hello')
 
