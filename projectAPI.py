@@ -6,6 +6,7 @@ import os
 app = Flask(__name__)
 
 @app.route('/')
+@crossdomain(origin='*')  
 def hello_world():
     print('Hello')
 
