@@ -4,7 +4,7 @@ from APItasks import get_data_for_one_season, get_data_for_all_seasons, generate
 from calculateData import bettingOdds
 import os
 app = Flask(__name__)
-CORS(app)
+cors = CORS(app)
 
 @app.route('/')
 def hello_world():
@@ -32,7 +32,16 @@ def predict_Game():
     home = request.args.get('home')
     away = request.args.get('away')
 
+    print("HELLO")
     return bettingOdds.predictGame(home,away)
+
+
+@app.route('/compare/teams/')
+def compare_Teams():
+    home = request.args.get('home')
+    away = request.args.get('away')
+    print("ABOUT TO START THE SHIT!")
+    return bettingOdds.compareTeams(home,away,'2012-05-26',180)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

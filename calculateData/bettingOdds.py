@@ -13,6 +13,8 @@ from socket import timeout
 import errno
 import random
 import json
+from datetime import timedelta
+from datetime import *
 
 def predictGame(homeTeam, awayTeam):
     con = lite.connect('predict.db', isolation_level=None)
@@ -68,3 +70,115 @@ def predictGame(homeTeam, awayTeam):
         response["awayMoneyLine"] = "-" + str(10000/awayTeamRequiredReturnPerWin)
 
     return json.dumps(response)
+
+def compareTeams(homeTeam, awayTeam, firstDay, dataPoints):
+    con = lite.connect('predict.db', isolation_level=None)
+    cur = con.cursor()
+
+    def getTeamGameRankings(teamAbbr):
+        query = "SELECT team1elo,day FROM games WHERE (team1abbr = \'" + str(teamAbbr) + "\') and (team1Abbr != '' AND team2Abbr != '') AND (day > \'" + firstDay + "\') ORDER BY day asc;"
+        cur.execute(query)
+        firsthalf = cur.fetchall()
+        query = "SELECT team2elo,day FROM games WHERE (team2abbr = \'" + str(teamAbbr) + "\') and (team1Abbr != '' AND team2Abbr != '') AND (day > \'" + firstDay + "\') ORDER BY day asc;"
+        cur.execute(query)
+        secondhalf = cur.fetchall()
+        allgames = firsthalf + secondhalf
+    
+        allgames = sorted(allgames, key=lambda game: game[1])   # sort by date
+
+        return allgames
+
+    homeGames = getTeamGameRankings(homeTeam);
+    awayGames = getTeamGameRankings(awayTeam);
+
+    def convert_str_to_datetime(dateString):
+        year_month_day = dateString.split("-")
+        return datetime(int(year_month_day[0]),int(year_month_day[1]),int(year_month_day[2]))
+
+    firstDayHome = convert_str_to_datetime(homeGames[0][1])
+    firstDayAway = convert_str_to_datetime(awayGames[0][1])
+
+    if(firstDayHome < firstDayAway):
+        earliestDay = firstDayHome
+    else:
+        earliestDay = firstDayAway
+
+    lastDayHome = convert_str_to_datetime(homeGames[len(homeGames)-1][1])
+    lastDayAway = convert_str_to_datetime(awayGames[len(awayGames)-1][1])
+
+    if(lastDayHome > lastDayAway):
+        latestDay = lastDayHome
+    else:
+        latestDay = lastDayAway
+
+    print(earliestDay)
+    print(latestDay)
+
+    def initializeDatesObject(dates):
+        difference_in_seconds = latestDay - earliestDay
+        delta_between_games = difference_in_seconds / dataPoints
+        
+        currentDate = earliestDay
+        while(currentDate < latestDay):
+            dateString = "%d-%02d-%02d" % (currentDate.year, currentDate.month, currentDate.day)
+            dates[currentDate] = {
+                "date": dateString
+            }
+            currentDate += delta_between_games
+
+    dates = {}
+    initializeDatesObject(dates)
+
+    def getAverageRatingTimeSeries(earliestDay, latestDay, gameData, dataPoints, teamAbbreviation ):
+        difference_in_seconds = latestDay - earliestDay
+        delta_between_games = difference_in_seconds / dataPoints
+
+        currentDate = earliestDay
+
+        count = 0
+        ratingSum = 0
+        timeSeries = []
+        
+        earliestRating = gameData[0][0]
+        for game in gameData:
+            if(convert_str_to_datetime(game[1]) > currentDate):
+                ratingSum += game[0]
+                count += 1
+                average = ratingSum / count
+                timeSeries.append(round(average,1))
+                x = dates[currentDate]
+                x[teamAbbreviation] = round(average,2)
+                currentDate += delta_between_games
+                ratingSum = 0
+                count = 0
+            else:
+                ratingSum += game[0]
+                count += 1
+
+        return timeSeries
+
+
+    homeTeamTimeSeries = getAverageRatingTimeSeries(earliestDay, latestDay, homeGames, dataPoints, homeTeam)
+    awayTeamTimeSeries = getAverageRatingTimeSeries(earliestDay, latestDay, awayGames, dataPoints, awayTeam)
+    values = []
+    for key,value in dates.items():
+        values.append(value)
+
+    values = sorted(values, key=lambda value: convert_str_to_datetime(value["date"]))
+    
+    ratings = {}
+    ratings[homeTeam] = None
+    ratings[awayTeam] = None
+    for value in values:
+        value["date"] = value["date"].replace("-","")
+        try:
+            ratings[homeTeam] = value[homeTeam]
+        except KeyError:
+            value[homeTeam] = ratings[homeTeam]
+
+        try:
+            ratings[awayTeam] = value[awayTeam]
+        except KeyError:
+            value[awayTeam] = ratings[awayTeam]
+
+    return json.dumps(values)
