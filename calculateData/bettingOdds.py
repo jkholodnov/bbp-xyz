@@ -15,6 +15,7 @@ import random
 import json
 from datetime import timedelta
 from datetime import *
+import statistics
 
 def predictGame(homeTeam, awayTeam):
     con = lite.connect('predict.db', isolation_level=None)
@@ -111,9 +112,6 @@ def compareTeams(homeTeam, awayTeam, firstDay, dataPoints):
     else:
         latestDay = lastDayAway
 
-    print(earliestDay)
-    print(latestDay)
-
     def initializeDatesObject(dates):
         difference_in_seconds = latestDay - earliestDay
         delta_between_games = difference_in_seconds / dataPoints
@@ -182,3 +180,47 @@ def compareTeams(homeTeam, awayTeam, firstDay, dataPoints):
             value[awayTeam] = ratings[awayTeam]
 
     return json.dumps(values)
+
+#This might have a problem dealing with the current way salaries are stored in the database. 
+#There can be multiple salaries for one player, thus we also need the year which we are analyzing... 
+#For now hardcoded to be 2015.. fix?
+def analyzeTeam(teamName):
+    year = 2015
+    response = {}
+    response["teamName"] = teamName
+
+    con = lite.connect('predict.db', isolation_level=None)
+    cur = con.cursor()
+
+    salaryQuery = "SELECT name,playerID,salary FROM players WHERE teamID == \'" + str(teamName) + "\' and season == '2015';"
+
+    cur.execute(salaryQuery)
+    x = cur.fetchall()
+    players = []
+
+    for salary in x:
+        player = {}
+        player["name"] = salary[0]
+        player["id"] = salary[1]
+        player["salary"] = salary[2]
+        players.append(player)
+
+    for player in players:
+        playerStatQuery = "SELECT avg(minutes), avg((fgm/fga)), avg((tpm/tpa)), avg((ftm/fta)), avg(oreb), avg(dreb), avg(assist), avg(steal), avg(block), avg(turnover), avg(points) FROM gamedata WHERE playerID ==" + str(player["id"]) + ";"
+        cur.execute(playerStatQuery)
+        playerStats = cur.fetchone()
+        player["stats"] = {}
+        player["stats"]["minutes"] = playerStats[0]
+        player["stats"]["fgPercent"] = playerStats[1]
+        player["stats"]["threePercent"] = playerStats[2]
+        player["stats"]["ftPercent"] = playerStats[3]
+        player["stats"]["oreb"] = playerStats[4]
+        player["stats"]["dreb"] = playerStats[5]
+        player["stats"]["assist"] = playerStats[6]
+        player["stats"]["steal"] = playerStats[7]
+        player["stats"]["block"] = playerStats[8]
+        player["stats"]["turnover"] = playerStats[9]
+        player["stats"]["points"] = playerStats[10]
+
+    response["players"] = players
+    return json.dumps(response)
