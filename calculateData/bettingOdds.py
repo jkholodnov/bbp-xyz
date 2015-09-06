@@ -1,10 +1,6 @@
-import urllib.request
-import urllib.error
 import sys
 from queue import *
 from threading import Thread
-import bs4
-from bs4 import BeautifulSoup
 import sqlite3 as lite
 import math
 import time
@@ -205,23 +201,17 @@ def analyzeTeam(teamName):
         player["salary"] = salary[2]
         players.append(player)
 
-    overallStatQuery = "SELECT minutes, fgm, fga, tpm, tpa, ftm, fta, oreb, dreb, assist, steal, block, turnover, points FROM gamedata WHERE injury =='NULL';"
-    cur.execute(overallStatQuery)
-    overallStats = cur.fetchall()
-    print(len(overallStats))
-    print(overallStats[0])
-
-    minutes = []
-    fgpct = []
-    tppct = []
-    ftpct = []
-    oreb = []
-    dreb = []
-    assist = []
-    steal = []
-    block = []
-    turnover = []
-    points = []
+    keys = ["Minutes","FG%","3%","FT%","Oreb","Dreb","Assist","Steal","Block","Turnover","Points"]
+    meanSDs = {}
+    for key in keys:
+        meanSD = {}
+        query = "SELECT statMean, statStdev FROM statistics WHERE statID == \"{0}\";".format(key)
+        cur.execute(query)
+        x = cur.fetchone()
+        meanSD["mean"] = x[0]
+        meanSD["stdev"] = x[1]
+        meanSDs[key] = meanSD
+    # print(meanSDs)
 
     def floatValidate(statString):
         if(statString == None):
@@ -229,71 +219,57 @@ def analyzeTeam(teamName):
         else:
             return float(statString)
 
-    for stat in overallStats:
-        minutes.append(stat[0])
-
-        #DONT KNOW PYTHON TERNARY... THIS IS JUST DIVIDE BY 0 CHECKS.
-        if(float(stat[2]) != 0):
-            fgpct.append(float(stat[1]) / float(stat[2]))
-        else:
-            fgpct.append(0)
-        
-        if(float(stat[4]) != 0):
-            tppct.append(float(stat[3]) / float(stat[4]))
-        else:
-            tppct.append(0)
-        
-        if(float(stat[6]) != 0):
-            ftpct.append(float(stat[5]) / float(stat[6]))
-        else:
-            ftpct.append(0)
-        
-        oreb.append(stat[7])
-        dreb.append(stat[8])
-        assist.append(stat[9])
-        steal.append(stat[10])
-        block.append(stat[11])
-        turnover.append(stat[12])
-        points.append(stat[13])
-
-    def clean_getMeanStdev(dataArray):
-        for data in dataArray:
-            if(data == None):
-                data = 0
-            data = float(data)
-        return dataArray
-
-    fgpct = clean_getMeanStdev(fgpct)
 
     for player in players:
         playerStatQuery = "SELECT avg(minutes), avg(fgm), avg(fga), avg(tpm), avg(tpa), avg(ftm), avg(fta), avg(oreb), avg(dreb), avg(assist), avg(steal), avg(block), avg(turnover), avg(points) FROM gamedata WHERE playerID ==" + str(player["id"]) + ";"
         cur.execute(playerStatQuery)
         playerStats = cur.fetchone()
         player["stats"] = {}
-        player["stats"]["Minutes"] = round(floatValidate(playerStats[0]),2)
+
+        rawStats = {}
+
+        rawStats["Minutes"] = round(floatValidate(playerStats[0]),2)
+
         if(playerStats[2] != None and float(playerStats[2]) != 0):
-            player["stats"]["FG%"] = round(float(playerStats[1]) / float(playerStats[2]),2)
+            rawStats["FG%"] = round(float(playerStats[1]) / float(playerStats[2]),2)
         else:
-            player["stats"]["FG%"] = 0
+            rawStats["FG%"] = 0
 
         if(playerStats[2] != None and float(playerStats[4]) != 0):
-            player["stats"]["3%"] = round(float(playerStats[3]) / float(playerStats[4]),2)
+            rawStats["3%"] = round(float(playerStats[3]) / float(playerStats[4]),2)
         else:
-            player["stats"]["3%"] = 0
+            rawStats["3%"] = 0
 
         if(playerStats[2] != None and float(playerStats[6]) != 0):
-            player["stats"]["FT%"] = round(float(playerStats[5]) / float(playerStats[6]),2)
+            rawStats["FT%"] = round(float(playerStats[5]) / float(playerStats[6]),2)
         else:
-            player["stats"]["FT%"] = 0
-        player["stats"]["Oreb"] = round(floatValidate(playerStats[7]), 2)
-        player["stats"]["Dreb"] = round(floatValidate(playerStats[8]), 2)
-        player["stats"]["Assist"] = round(floatValidate(playerStats[9]), 2)
-        player["stats"]["Steal"] = round(floatValidate(playerStats[10]), 2)
-        player["stats"]["Block"] = round(floatValidate(playerStats[11]), 2)
-        player["stats"]["Turnover"] = round(floatValidate(playerStats[12]), 2)
-        player["stats"]["Points"] = round(floatValidate(playerStats[13]), 2)
+            rawStats["FT%"] = 0
+
+        rawStats["Oreb"] = round(floatValidate(playerStats[7]), 2)
+        rawStats["Dreb"] = round(floatValidate(playerStats[8]), 2)
+        rawStats["Assist"] = round(floatValidate(playerStats[9]), 2)
+        rawStats["Steal"] = round(floatValidate(playerStats[10]), 2)
+        rawStats["Block"] = round(floatValidate(playerStats[11]), 2)
+        rawStats["Turnover"] = round(floatValidate(playerStats[12]), 2)
+        rawStats["Points"] = round(floatValidate(playerStats[13]), 2)
+
+        for key in keys:
+            rawValue = rawStats[key]
+            mean = meanSDs[key]["mean"]
+            stdev = meanSDs[key]["stdev"]
+
+            diff = rawValue - mean
+            numSDs = diff / stdev
+            if(rawValue == 0):
+                numSDs = 0
+            
+            playerIndividualStats = {}
+            playerIndividualStats["numSDs"] = round(numSDs,2)
+            playerIndividualStats["rawValue"] = rawValue
+            player["stats"][key] = playerIndividualStats
 
     response["players"] = players
+    print(response)
     return json.dumps(response)
 
 analyzeTeam("chi")

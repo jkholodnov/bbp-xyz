@@ -1,6 +1,7 @@
 from celery import Celery
-import scrapeData.NBA_Game_Updater as NBA_Game_Updater 
-import fixData.teamElo as teamElo
+import scrapeData.NBA_Game_Updater as NBA_Game_Updater
+from scrapeData import NBA_Game_Updater
+from fixData import teamElo, meanSD
 #import scrape.create_tables_nba as create_tables
 
 app = Celery('APItasks', broker='amqp://localhost')
@@ -9,7 +10,8 @@ app = Celery('APItasks', broker='amqp://localhost')
 def get_data_for_one_season(year):
     NBA_Game_Updater.main(year)
     return "Successfully grabbed all games for the " + str(year) + " season."
-    generate_Elo()
+    teamElo.generate_Elo()
+    meanSD.calculateMeanAndSDs()
 
 @app.task
 def get_data_for_all_seasons():
@@ -31,6 +33,7 @@ def get_data_for_all_seasons():
     for year in years:
         NBA_Game_Updater.main(year)
     generate_Elo()
+    meanSD.calculateMeanAndSDs()
     return "Successfully grabbed all game for all seasons!"
 
 @app.task

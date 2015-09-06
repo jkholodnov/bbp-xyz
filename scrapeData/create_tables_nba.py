@@ -27,6 +27,10 @@ with con:
         "CREATE TABLE teams(teamID TEXT, currentELO FLOAT)"
         )
 
+    cur.execute(
+        "CREATE TABLE statistics(statID TEXT PRIMARY KEY NOT NULL, statMean FLOAT, statStdev FLOAT)"
+        )
+
 
 con.commit()
 con.close()
