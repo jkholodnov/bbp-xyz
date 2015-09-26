@@ -46,6 +46,7 @@ def analyze_Team(teamName):
 
 @app.route('/initialize/analyze')
 def get_Team_Analysis_Stats():
+    print("HIT")
     x = bettingOdds.analyzeAllTeams()
     return bettingOdds.analyzeAllTeams()
 
