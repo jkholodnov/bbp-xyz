@@ -42,7 +42,9 @@ def compare_Teams():
 
 @app.route('/analyze/team/<teamName>')
 def analyze_Team(teamName):
-    return bettingOdds.analyzeTeam(teamName)
+    x = bettingOdds.analyzeTeam(teamName)
+    print(x)
+    return x
 
 @app.route('/initialize/analyze')
 def get_Team_Analysis_Stats():

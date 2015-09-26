@@ -290,7 +290,7 @@ def analyzeTeam(teamName):
             for key in keys:
                 player["stats"][key] = {"numSDs":0, "rawValue":0}
     response["players"] = players
-    return response
+    return json.dumps(response)
 
 def analyzeAllTeams():
     con = lite.connect('predict.db', isolation_level=None)
@@ -304,7 +304,7 @@ def analyzeAllTeams():
         teamStats[team[0]] = analyzeTeam(team[0])
 
     return json.dumps(teamStats)
-    
+
 # cProfile.run('predictGame("lal","cle")')
 # cProfile.run('analyzeAllTeams()')
 # cProfile.run('analyzeTeam("lal")')
