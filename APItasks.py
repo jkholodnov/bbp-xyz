@@ -4,7 +4,7 @@ from scrapeData import NBA_Game_Updater
 from fixData import teamElo, meanSD
 #import scrape.create_tables_nba as create_tables
 
-app = Celery('APItasks', broker='amqp://localhost')
+app = Celery('APItasks', broker='amqp://127.0.0.1:5000')
 
 @app.task
 def get_data_for_one_season(year):
