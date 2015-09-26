@@ -13,6 +13,8 @@ from datetime import timedelta
 from datetime import *
 from statistics import mean, stdev
 
+import cProfile
+
 def predictGame(homeTeam, awayTeam):
     con = lite.connect('predict.db', isolation_level=None)
     cur = con.cursor()
@@ -26,20 +28,18 @@ def predictGame(homeTeam, awayTeam):
     homeTeamElo = cur.fetchone()[0]
 
     eloDifference = homeTeamElo - awayTeamElo
-    print(homeTeamElo)
-    print(awayTeamElo)
     query = "SELECT count(*) FROM games WHERE (team2elo - team1elo) > " + str(eloDifference - 3) + " AND (team2elo - team1elo) < " + str(eloDifference + 3) + ";"
     cur.execute(query)
     totalNumberOfGames = cur.fetchone()[0]
-    print(totalNumberOfGames)
 
     query = "SELECT count(*) FROM games WHERE (team2elo - team1elo) > " + str(eloDifference - 3) + " AND (team2elo - team1elo) < " + str(eloDifference + 3) + " AND (team2Score > team1Score);"
     cur.execute(query)
     correctGames = cur.fetchone()[0]
-    print(correctGames)
 
     percentWin = correctGames / totalNumberOfGames
 
+    if(percentWin == 0):
+        percentWin = .001
 
     response = {}
     response["homeRating"] = round(homeTeamElo,2)
@@ -51,20 +51,20 @@ def predictGame(homeTeam, awayTeam):
         lossPct = 1-winPct
         return 100 * ((1-winPct) / winPct)
 
-    homeTeamRequiredReturnPerWin = round(determine_required_return_per_win(response["homeWinPercent"]),4)
-    awayTeamRequiredReturnPerWin = round(determine_required_return_per_win(response["awayWinPercent"]),4)
+    homeTeamRequiredReturnPerWin = determine_required_return_per_win(response["homeWinPercent"])
+    awayTeamRequiredReturnPerWin = determine_required_return_per_win(response["awayWinPercent"])
 
     if homeTeamRequiredReturnPerWin > 100:
         #you better be making more than 100 per bet, because you have a 50% chance or greater to lose the bet.
-        response["homeMoneyLine"] = "+" + str(homeTeamRequiredReturnPerWin)
+        response["homeMoneyLine"] = "+" + str(round(homeTeamRequiredReturnPerWin,4))
     else:
-        response["homeMoneyLine"] = "-" + str(10000/homeTeamRequiredReturnPerWin)
+        response["homeMoneyLine"] = "-" + str(round(10000/homeTeamRequiredReturnPerWin,4))
     
 
     if awayTeamRequiredReturnPerWin > 100:
-        response["awayMoneyLine"] = "+" + str(awayTeamRequiredReturnPerWin)
+        response["awayMoneyLine"] = "+" + str(round(awayTeamRequiredReturnPerWin,4))
     else:
-        response["awayMoneyLine"] = "-" + str(10000/awayTeamRequiredReturnPerWin)
+        response["awayMoneyLine"] = "-" + str(round(10000/awayTeamRequiredReturnPerWin,4))
 
     return json.dumps(response)
 
@@ -184,6 +184,7 @@ def analyzeTeam(teamName):
     year = 2015
     response = {}
     response["teamName"] = teamName
+    response["statValues"] = {}
 
     con = lite.connect('predict.db', isolation_level=None)
     cur = con.cursor()
@@ -198,78 +199,112 @@ def analyzeTeam(teamName):
         player = {}
         player["name"] = salary[0]
         player["id"] = salary[1]
-        player["salary"] = salary[2]
+        if(salary[2] == '\xa0'):
+            player["salary"] = -1
+        else:
+            player["salary"] = salary[2]
         players.append(player)
 
     keys = ["Minutes","FG%","3%","FT%","Oreb","Dreb","Assist","Steal","Block","Turnover","Points"]
     meanSDs = {}
+    query = "SELECT * FROM statistics"
+    cur.execute(query)
+    allstats = cur.fetchall()
+
     for key in keys:
         meanSD = {}
-        query = "SELECT statMean, statStdev FROM statistics WHERE statID == \"{0}\";".format(key)
-        cur.execute(query)
-        x = cur.fetchone()
-        meanSD["mean"] = x[0]
-        meanSD["stdev"] = x[1]
-        meanSDs[key] = meanSD
-    # print(meanSDs)
+        for stat in allstats:
+            if(stat[0] == key):
+                meanSD["mean"] = stat[1]
+                meanSD["stdev"] = stat[2]
+                meanSDs[key] = meanSD
+                response["statValues"][key] = {"mean":stat[1],"sd":stat[2]}
 
-    def floatValidate(statString):
-        if(statString == None):
+    def floatValidate(inputString):
+        if(inputString == None):
             return 0
         else:
-            return float(statString)
+            return float(inputString)
+
+    def isNoneOrZero(inputString):
+        if(inputString == None or float(inputString) == 0.0):
+            return True
+        else:
+            return False
+
+    queryBuilder = "("
+    for player in players:
+        queryBuilder += str(player["id"]) + ","
+    queryBuilder = queryBuilder[:-1] + ")"
+
+    statQuery = "SELECT playerID, avg(minutes), avg(fgm), avg(fga), avg(tpm), avg(tpa), avg(ftm), avg(fta), avg(oreb), avg(dreb), avg(assist), avg(steal), avg(block), avg(turnover), avg(points) FROM gamedata WHERE playerID in " + queryBuilder + " GROUP BY name;"
+    cur.execute(statQuery)
+    stats = cur.fetchall()
 
 
     for player in players:
-        playerStatQuery = "SELECT avg(minutes), avg(fgm), avg(fga), avg(tpm), avg(tpa), avg(ftm), avg(fta), avg(oreb), avg(dreb), avg(assist), avg(steal), avg(block), avg(turnover), avg(points) FROM gamedata WHERE playerID ==" + str(player["id"]) + ";"
-        cur.execute(playerStatQuery)
-        playerStats = cur.fetchone()
         player["stats"] = {}
+        for stat in stats:
+            if player["id"] == stat[0]:
+                rawStats = {}
+                rawStats["Minutes"] = round(floatValidate(stat[1]))
 
-        rawStats = {}
+                if(isNoneOrZero(stat[3])):
+                    rawStats["FG%"] = 0
+                else:
+                    rawStats["FG%"] = round(float(stat[2]) / float(stat[3]),2)
 
-        rawStats["Minutes"] = round(floatValidate(playerStats[0]),2)
+                if(isNoneOrZero(stat[5])):
+                    rawStats["3%"] = 0
+                else:
+                    rawStats["3%"] = round(float(stat[4]) / float(stat[5]),2)
 
-        if(playerStats[2] != None and float(playerStats[2]) != 0):
-            rawStats["FG%"] = round(float(playerStats[1]) / float(playerStats[2]),2)
-        else:
-            rawStats["FG%"] = 0
+                if(isNoneOrZero(stat[7])):
+                    rawStats["FT%"] = 0
+                else:
+                    rawStats["FT%"] = round(float(stat[6]) / float(stat[7]),2)
 
-        if(playerStats[2] != None and float(playerStats[4]) != 0):
-            rawStats["3%"] = round(float(playerStats[3]) / float(playerStats[4]),2)
-        else:
-            rawStats["3%"] = 0
+                rawStats["Oreb"] = round(floatValidate(stat[8]), 2)
+                rawStats["Dreb"] = round(floatValidate(stat[9]), 2)
+                rawStats["Assist"] = round(floatValidate(stat[10]), 2)
+                rawStats["Steal"] = round(floatValidate(stat[11]), 2)
+                rawStats["Block"] = round(floatValidate(stat[12]), 2)
+                rawStats["Turnover"] = round(floatValidate(stat[13]), 2)
+                rawStats["Points"] = round(floatValidate(stat[14]), 2)
 
-        if(playerStats[2] != None and float(playerStats[6]) != 0):
-            rawStats["FT%"] = round(float(playerStats[5]) / float(playerStats[6]),2)
-        else:
-            rawStats["FT%"] = 0
+                for key in keys:
+                    rawValue = rawStats[key]
+                    mean = meanSDs[key]["mean"]
+                    stdev = meanSDs[key]["stdev"]
 
-        rawStats["Oreb"] = round(floatValidate(playerStats[7]), 2)
-        rawStats["Dreb"] = round(floatValidate(playerStats[8]), 2)
-        rawStats["Assist"] = round(floatValidate(playerStats[9]), 2)
-        rawStats["Steal"] = round(floatValidate(playerStats[10]), 2)
-        rawStats["Block"] = round(floatValidate(playerStats[11]), 2)
-        rawStats["Turnover"] = round(floatValidate(playerStats[12]), 2)
-        rawStats["Points"] = round(floatValidate(playerStats[13]), 2)
-
-        for key in keys:
-            rawValue = rawStats[key]
-            mean = meanSDs[key]["mean"]
-            stdev = meanSDs[key]["stdev"]
-
-            diff = rawValue - mean
-            numSDs = diff / stdev
-            if(rawValue == 0):
-                numSDs = 0
-            
-            playerIndividualStats = {}
-            playerIndividualStats["numSDs"] = round(numSDs,2)
-            playerIndividualStats["rawValue"] = rawValue
-            player["stats"][key] = playerIndividualStats
-
+                    diff = rawValue - mean
+                    numSDs = diff / stdev
+                    if(rawValue == 0):
+                        numSDs = 0
+                    
+                    playerIndividualStats = {}
+                    playerIndividualStats["numSDs"] = round(numSDs,2)
+                    playerIndividualStats["rawValue"] = rawValue
+                    player["stats"][key] = playerIndividualStats
+        if player["stats"] == {}:
+            for key in keys:
+                player["stats"][key] = {"numSDs":0, "rawValue":0}
     response["players"] = players
-    print(response)
-    return json.dumps(response)
+    return response
 
-analyzeTeam("chi")
+def analyzeAllTeams():
+    con = lite.connect('predict.db', isolation_level=None)
+    cur = con.cursor()
+
+    teamNamesQuery = "SELECT DISTINCT(teamID) FROM teams;"
+    cur.execute(teamNamesQuery)
+    teams = cur.fetchall()
+    teamStats = {}
+    for team in teams:
+        teamStats[team[0]] = analyzeTeam(team[0])
+
+    return json.dumps(teamStats)
+    
+# cProfile.run('predictGame("lal","cle")')
+# cProfile.run('analyzeAllTeams()')
+# cProfile.run('analyzeTeam("lal")')

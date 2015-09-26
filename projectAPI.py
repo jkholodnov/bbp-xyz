@@ -44,6 +44,11 @@ def compare_Teams():
 def analyze_Team(teamName):
     return bettingOdds.analyzeTeam(teamName)
 
+@app.route('/initialize/analyze')
+def get_Team_Analysis_Stats():
+    x = bettingOdds.analyzeAllTeams()
+    return bettingOdds.analyzeAllTeams()
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
