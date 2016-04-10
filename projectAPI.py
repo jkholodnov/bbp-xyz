@@ -2,6 +2,9 @@ from flask import Flask, request
 from flask.ext.cors import CORS, cross_origin
 from APItasks import get_data_for_one_season, get_data_for_all_seasons, generate_Elo_For_New_Games
 from calculateData import bettingOdds
+import scrapeData.NBA_Game_Updater as NBA_Game_Updater
+from scrapeData import NBA_Game_Updater
+from fixData import teamElo, meanSD
 import os
 app = Flask(__name__)
 cors = CORS(app)
@@ -12,8 +15,9 @@ def hello_world():
 
 @app.route('/tasks/scrape/season/<int:year>', methods=['POST'])
 def get_all_games_for_one_season(year):
-    #THIS SPAWNS A CELERY TASK
-    get_data_for_one_season.delay(year)
+    NBA_Game_Updater.main(year)
+    teamElo.generate_Elo()
+    meanSD.calculateMeanAndSDs()
     return "Successfully grabbed all games for the " + str(year) + " season."
 
 @app.route('/tasks/scrape/season/all', methods=['POST'])
