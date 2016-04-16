@@ -1,19 +1,8 @@
-import sys
 from queue import *
-from threading import Thread
 import sqlite3 as lite
-import math
-import time
-import re
-from socket import timeout
-import errno
-import random
 import json
-from datetime import timedelta
 from datetime import *
-from statistics import mean, stdev
 
-import cProfile
 
 def predictGame(homeTeam, awayTeam):
     con = lite.connect('predict.db', isolation_level=None)

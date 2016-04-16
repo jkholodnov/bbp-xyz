@@ -1,42 +1,34 @@
-import urllib.request
-import urllib.error
-import sys
-from queue import *
 from threading import Thread
-import bs4
-from bs4 import BeautifulSoup
 import sqlite3 as lite
 import math
-import time
-import re
-from socket import timeout
-import errno
-import random
+
 
 class Team(object):
-    def __init__(self,teamAbbreviation):
+    def __init__(self, teamAbbreviation):
         self.Abbreviation = teamAbbreviation
 
+
 class Player(object):
-    def __init__(self,playerName):
+    def __init__(self, playerName):
         self.Name = playerName
 
+
 def loadTeamsAndPlayers():
-    con = lite.connect('predict.db', isolation_level=None)
+    con = lite.connect('../predict.db', isolation_level=None)
     cur = con.cursor()
-    
+
     Teams = {}
 
-    cur.execute("SELECT distinct Team1Abbr FROM games;")
+    cur.execute("SELECT DISTINCT Team1Abbr FROM games;")
     teamAbbrsFromDb = cur.fetchall()
 
-    del(teamAbbrsFromDb[-1])
+    del (teamAbbrsFromDb[-1])
     for team in teamAbbrsFromDb:
         newTeam = Team(team[0])
         currentElo = "SELECT currentElo FROM teams WHERE teamid = \'" + str(team[0]) + "\';"
         cur.execute(currentElo)
         elo = cur.fetchone()
-        if(elo):
+        if (elo):
             newTeam.currentElo = elo[0]
         else:
             newTeam.currentElo = 1500.0
@@ -44,7 +36,7 @@ def loadTeamsAndPlayers():
 
     Players = {}
 
-    cur.execute("SELECT DISTINCT(name) from gamedata;")
+    cur.execute("SELECT DISTINCT(name) FROM gamedata;")
     players = cur.fetchall()
     for player in players:
         newPlayer = Player(player[0])
@@ -56,8 +48,9 @@ def loadTeamsAndPlayers():
 
     return teamsAndPlayers
 
+
 def loadGames():
-    con = lite.connect('predict.db', isolation_level=None)
+    con = lite.connect('../predict.db', isolation_level=None)
     cur = con.cursor()
     gameDays = "SELECT DISTINCT day FROM games order by day asc;";
     cur.execute(gameDays)
@@ -66,25 +59,27 @@ def loadGames():
     allGames = {}
     for day in gameDays:
         thisDaysGames = []
-        query = "SELECT gameId, Team1Abbr, Team2Abbr, Team1Score, Team2Score, Team1ELO, Team2ELO FROM games where day = \'" + day[0] + "\';"
+        query = "SELECT gameId, Team1Abbr, Team2Abbr, Team1Score, Team2Score, Team1ELO, Team2ELO FROM games where day = \'" + \
+                day[0] + "\';"
         cur.execute(query)
         games = cur.fetchall()
         for game in games:
             thisDaysGames.append(game)
-        allGames[day[0]]=thisDaysGames
+        allGames[day[0]] = thisDaysGames
     return allGames
+
 
 def generateElo():
     x = loadTeamsAndPlayers()
     Teams = x['Teams']
     Players = x['Players']
-    allGames = loadGames()    
+    allGames = loadGames()
     databaseQueries = []
 
     def computeElo():
-        con = lite.connect('predict.db', isolation_level=None)
+        con = lite.connect('../predict.db', isolation_level=None)
         cur = con.cursor()
-        daysWhereWeNeedToCalcElo = "SELECT DISTINCT(day) FROM games WHERE (team1elo = 'NULL' or team2elo = 'NULL') and (team1abbr != '' and team2abbr != '' ) order by day ASC;"
+        daysWhereWeNeedToCalcElo = "SELECT DISTINCT(day) FROM games WHERE (team1elo is null or team2elo is null) and (team1abbr != '' and team2abbr != '' ) order by day ASC;"
         cur.execute(daysWhereWeNeedToCalcElo)
         daysWhereWeNeedToCalcElo = cur.fetchall()
         for day in daysWhereWeNeedToCalcElo:
@@ -96,10 +91,10 @@ def generateElo():
                 thread.daemon = True
                 thread.start()
                 threads.append(thread)
-                
+
             for thread in threads:
                 thread.join()
-                
+
     def generateEloForGame(*game):
         try:
             gameid = game[0]
@@ -110,12 +105,13 @@ def generateElo():
             team1Elo = team1.currentElo
             team2Elo = team2.currentElo
 
-            setEloAtStartOfGame = "UPDATE games SET team1ELO = " + str(team1Elo) + ", team2ELO = " + str(team2Elo) + " WHERE gameid = '" + str(gameid) + "';"
+            setEloAtStartOfGame = "UPDATE games SET team1ELO = " + str(team1Elo) + ", team2ELO = " + str(
+                team2Elo) + " WHERE gameid = '" + str(gameid) + "';"
             databaseQueries.append(setEloAtStartOfGame);
-            team1Expected = 1 / (1 + math.pow(10, (( team2Elo - team1Elo) / 400)))
-            team2Expected = 1 / (1 + math.pow(10, (( team1Elo - team2Elo) / 400)))
+            team1Expected = 1 / (1 + math.pow(10, ((team2Elo - team1Elo) / 400)))
+            team2Expected = 1 / (1 + math.pow(10, ((team1Elo - team2Elo) / 400)))
 
-            if(team1Score > team2Score):
+            if (team1Score > team2Score):
                 team1.currentElo += (50 * (1 - team1Expected))
                 team2.currentElo += (50 * (0 - team2Expected))
             else:
@@ -124,11 +120,11 @@ def generateElo():
 
         except Exception as e:
             pass
-            #THE GODDAM SUPERSONICS MAN
+            # THE GODDAM SUPERSONICS MAN
 
     computeElo()
 
-    con = lite.connect('predict.db', isolation_level=None)
+    con = lite.connect('../predict.db', isolation_level=None)
     cur = con.cursor()
 
     print(len(databaseQueries))
@@ -136,9 +132,11 @@ def generateElo():
         cur.execute(query)
 
     for team in Teams.items():
-        query = "UPDATE teams SET currentElo = " + str(team[1].currentElo) + " WHERE teamid = '" + str(team[1].Abbreviation) + "';"
+        query = "UPDATE teams SET currentElo = " + str(team[1].currentElo) + " WHERE teamid = '" + str(
+            team[1].Abbreviation) + "';"
         cur.execute(query)
     con.commit()
+
 
 if __name__ == '__main__':
     generateElo()
