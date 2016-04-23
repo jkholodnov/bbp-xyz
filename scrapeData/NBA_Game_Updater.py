@@ -86,7 +86,6 @@ def get_roster_for_team(team_abbreviation: str, season_year: str):
 
 
 def get_game_ids(team_abbreviation: str, season_year: str):
-    print("getting schedule for " + team_abbreviation)
     team_schedule = "http://espn.go.com/nba/team/schedule/_/name/" + team_abbreviation + "/year/" + season_year + "/"
     preseason_url = team_schedule + "seasontype/1/"
     midseason_url = team_schedule + "seasontype/2/"
@@ -192,10 +191,10 @@ def scrape_gameid(game_id: str, attempt: int=0):
                         'pf': int(data_row.find('td', {'class': "pf"}).getText()),
                         'plus_minus': int(data_row.find('td', {'class': "plusminus"}).getText()),
                         'pts': int(data_row.find('td', {'class': "pts"}).getText()),
-                        'injured': False
+                        'injured': None
                     })
                 else:
-                    player_data['injured'] = True
+                    player_data['injured'] = injured.getText()
                 return player_data
 
         def parse_table_data(team_data):
@@ -205,7 +204,7 @@ def scrape_gameid(game_id: str, attempt: int=0):
             rows = [parse_row_data(row) for row in rows]
             return rows
 
-        away_team_data = soup.find('div', {'class': 'gamepackage-home-wrap'})
+        away_team_data = soup.find('div', {'class': 'gamepackage-away-wrap'})
         home_team_data = soup.find('div', {'class': 'gamepackage-home-wrap'})
         away_team_results = parse_table_data(away_team_data)
         home_team_results = parse_table_data(home_team_data)

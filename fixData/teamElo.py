@@ -1,7 +1,9 @@
 from threading import Thread
 import sqlite3 as lite
 import math
+from save_data import save_game_data
 
+con = save_game_data.con
 
 class Team(object):
     def __init__(self, teamAbbreviation):
@@ -14,7 +16,6 @@ class Player(object):
 
 
 def loadTeamsAndPlayers():
-    con = lite.connect('../predict.db', isolation_level=None)
     cur = con.cursor()
 
     Teams = {}
@@ -50,19 +51,14 @@ def loadTeamsAndPlayers():
 
 
 def loadGames():
-    con = lite.connect('../predict.db', isolation_level=None)
-    cur = con.cursor()
-    gameDays = "SELECT DISTINCT day FROM games order by day asc;";
-    cur.execute(gameDays)
-    gameDays = cur.fetchall()
+    gameDays = con.execute("SELECT DISTINCT day FROM games order by day asc;").fetchall()
 
     allGames = {}
     for day in gameDays:
         thisDaysGames = []
         query = "SELECT gameId, Team1Abbr, Team2Abbr, Team1Score, Team2Score, Team1ELO, Team2ELO FROM games where day = \'" + \
                 day[0] + "\';"
-        cur.execute(query)
-        games = cur.fetchall()
+        games = con.execute(query).fetchall()
         for game in games:
             thisDaysGames.append(game)
         allGames[day[0]] = thisDaysGames
@@ -77,7 +73,6 @@ def generateElo():
     databaseQueries = []
 
     def computeElo():
-        con = lite.connect('../predict.db', isolation_level=None)
         cur = con.cursor()
         daysWhereWeNeedToCalcElo = "SELECT DISTINCT(day) FROM games WHERE (team1elo is null or team2elo is null) and (team1abbr != '' and team2abbr != '' ) order by day ASC;"
         cur.execute(daysWhereWeNeedToCalcElo)
@@ -124,7 +119,6 @@ def generateElo():
 
     computeElo()
 
-    con = lite.connect('../predict.db', isolation_level=None)
     cur = con.cursor()
 
     print(len(databaseQueries))
@@ -132,8 +126,7 @@ def generateElo():
         cur.execute(query)
 
     for team in Teams.items():
-        query = "UPDATE teams SET currentElo = " + str(team[1].currentElo) + " WHERE teamid = '" + str(
-            team[1].Abbreviation) + "';"
+        query = "UPDATE teams SET currentElo = {} WHERE teamid = \'{}\'".format(str(team[1].currentElo), str(team[1].Abbreviation))
         cur.execute(query)
     con.commit()
 

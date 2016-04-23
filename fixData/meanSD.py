@@ -1,6 +1,6 @@
-import json
 import sqlite3 as lite
 from statistics import mean, stdev
+
 
 def calculateMeanAndSDs():
     con = lite.connect('../predict.db', isolation_level=None)
@@ -21,26 +21,14 @@ def calculateMeanAndSDs():
     turnover = []
     points = []
 
-
     for stat in overallStats:
         minutes.append(stat[0])
 
-        #DONT KNOW PYTHON TERNARY... THIS IS JUST DIVIDE BY 0 CHECKS.
-        if(float(stat[2]) != 0):
-            fgpct.append(float(stat[1]) / float(stat[2]))
-        else:
-            fgpct.append(0)
-        
-        if(float(stat[4]) != 0):
-            tppct.append(float(stat[3]) / float(stat[4]))
-        else:
-            tppct.append(0)
-        
-        if(float(stat[6]) != 0):
-            ftpct.append(float(stat[5]) / float(stat[6]))
-        else:
-            ftpct.append(0)
-        
+        # DONT KNOW PYTHON TERNARY... THIS IS JUST DIVIDE BY 0 CHECKS.
+        fgpct.append(0) if float(stat[2] == 0) else fgpct.append(float(stat[1]) / float(stat[2]))
+        tppct.append(0) if float(stat[2] == 0) else tppct.append(float(stat[3]) / float(stat[4]))
+        ftpct.append(0) if float(stat[2] == 0) else ftpct.append(float(stat[5]) / float(stat[6]))
+
         oreb.append(stat[7])
         dreb.append(stat[8])
         assist.append(stat[9])
@@ -50,23 +38,20 @@ def calculateMeanAndSDs():
         points.append(stat[13])
 
     def clean_getMeanStdev(dataArray, dataKey):
-        for data in dataArray:
-            if(data == None):
-                data = 0
-            data = float(data)
-
-        dataMean = mean(dataArray)
-        dataStdev = stdev(dataArray,dataMean)
-        response = {}
-        response["dataKey"] = dataKey
-        response["mean"] = dataMean
-        response["stdev"] = dataStdev
+        cleaned_data = [0.0 if not data else float(data) for data in dataArray]
+        dataMean = mean(cleaned_data)
+        dataStdev = stdev(cleaned_data, dataMean)
+        response = {
+            "dataKey": dataKey,
+            "mean": dataMean,
+            "stdev": dataStdev
+        }
         return response
 
     meanSDs = []
-    meanSDs.append(clean_getMeanStdev(minutes,"Minutes"))
-    meanSDs.append(clean_getMeanStdev(fgpct,"FG%"))
-    meanSDs.append(clean_getMeanStdev(tppct,"3%"))
+    meanSDs.append(clean_getMeanStdev(minutes, "Minutes"))
+    meanSDs.append(clean_getMeanStdev(fgpct, "FG%"))
+    meanSDs.append(clean_getMeanStdev(tppct, "3%"))
     meanSDs.append(clean_getMeanStdev(ftpct, "FT%"))
     meanSDs.append(clean_getMeanStdev(oreb, "Oreb"))
     meanSDs.append(clean_getMeanStdev(dreb, "Dreb"))
@@ -77,6 +62,7 @@ def calculateMeanAndSDs():
     meanSDs.append(clean_getMeanStdev(points, "Points"))
 
     for meanSD in meanSDs:
-        query = "INSERT OR REPLACE INTO statistics VALUES(\"{0}\",{1},{2});".format(meanSD["dataKey"], meanSD["mean"], meanSD["stdev"])
+        query = "INSERT OR REPLACE INTO statistics VALUES(\"{0}\",{1},{2});".format(meanSD["dataKey"], meanSD["mean"],
+                                                                                    meanSD["stdev"])
         cur.execute(query)
     con.commit()

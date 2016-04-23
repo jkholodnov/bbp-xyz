@@ -2,23 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef67858-72dd-4ac6-9ff8-77a8f5a8c9a4" name="Default" comment="scraped 2016 data">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fixData/predict.db" afterPath="$PROJECT_DIR$/fixData/predict.db" />
-    </list>
-    <list id="3a2a74ad-3662-41ee-ab80-f0c8afad92a7" name="Rejected commit: Default" comment="scraped 2016 data">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/save_data/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scrapeData/data_coordinator.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scrapeData/notebook.ipynb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/save_data/save_game_data.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scrapeData/scrape_game_data.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/save_data/predict.db" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/scrapeData/create_tables_nba.py" afterPath="$PROJECT_DIR$/save_data/create_tables_nba.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scrapeData/predict.db" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fixData/predict.db" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/predict.db" afterPath="$PROJECT_DIR$/predict.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py" afterPath="$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/calculateData/bettingOdds.py" afterPath="$PROJECT_DIR$/calculateData/bettingOdds.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scrapeData/data_coordinator.py" afterPath="$PROJECT_DIR$/scrapeData/data_coordinator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fixData/meanSD.py" afterPath="$PROJECT_DIR$/fixData/meanSD.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/save_data/save_game_data.py" afterPath="$PROJECT_DIR$/save_data/save_game_data.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fixData/teamElo.py" afterPath="$PROJECT_DIR$/fixData/teamElo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
+    <list id="3a2a74ad-3662-41ee-ab80-f0c8afad92a7" name="Rejected commit: Default" comment="scraped 2016 data">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/save_data/predict.db" afterPath="" />
     </list>
     <ignored path="jkproj.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +27,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/jkproj$data_coordinator.coverage" NAME="data_coordinator Coverage Results" MODIFIED="1460839316798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scrapeData" />
+    <SUITE FILE_PATH="coverage/jkproj$data_coordinator.coverage" NAME="data_coordinator Coverage Results" MODIFIED="1461447753434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scrapeData" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -47,12 +42,7 @@
         <entry file="file://$PROJECT_DIR$/save_data/create_tables_nba.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="34" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="34" />
-              <caret line="8" column="32" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="32" />
-              <caret line="8" column="48" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="48" />
-              <caret line="8" column="64" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="64" />
-              <caret line="8" column="81" selection-start-line="8" selection-start-column="71" selection-end-line="8" selection-end-column="81" />
-              <caret line="9" column="39" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="39" />
+              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
               <folding>
                 <marker date="1459010538764" expanded="true" signature="117:336" placeholder="CREATE TABLE..games..." />
                 <marker date="1459010538764" expanded="true" signature="365:576" placeholder="CREATE TABLE..players..." />
@@ -68,25 +58,24 @@
         <entry file="file://$PROJECT_DIR$/scrapeData/data_coordinator.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
               <folding>
-                <element signature="e#0#46#0" expanded="true" />
-                <element signature="e#983#987#0" expanded="true" />
+                <element signature="e#0#33#0" expanded="true" />
+                <element signature="e#2418#3283#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="save_game_data.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/save_data/save_game_data.py">
+      <file leaf-file-name="meanSD.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fixData/meanSD.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
               <folding>
-                <element signature="e#135#284#0" expanded="true" />
-                <element signature="e#332#336#0" expanded="true" />
-                <element signature="e#382#386#0" expanded="true" />
-                <marker date="1460839316596" expanded="true" signature="152:255" placeholder="INSERT OR IG..." />
+                <element signature="e#0#22#0" expanded="true" />
+                <element signature="e#1274#1581#0" expanded="true" />
+                <marker date="1461116865987" expanded="true" signature="196:328" placeholder="SELECT minut..gamedata..." />
               </folding>
             </state>
           </provider>
@@ -95,23 +84,77 @@
       <file leaf-file-name="teamElo.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fixData/teamElo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1585366">
-              <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.021929825">
+              <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-                <element signature="e#297#1241#0" expanded="true" />
-                <element signature="e#1265#1883#0" expanded="true" />
-                <element signature="e#1909#4320#0" expanded="true" />
-                <element signature="e#2068#2807#0" expanded="true" />
-                <element signature="e#2852#3901#0" expanded="true" />
-                <marker date="1460840977724" expanded="true" signature="412:448" placeholder="SELECT DISTI..games..." />
-                <marker date="1460840977724" expanded="true" signature="607:675" placeholder="SELECT curre..teams..." />
-                <marker date="1460840977724" expanded="true" signature="933:968" placeholder="SELECT DISTI..gamedata..." />
-                <marker date="1460840977724" expanded="true" signature="1362:1409" placeholder="SELECT DISTI..." />
-                <marker date="1460840977724" expanded="true" signature="1557:1696" placeholder="SELECT gameI..games..." />
-                <marker date="1460840977724" expanded="true" signature="2189:2325" placeholder="SELECT DISTI..games..." />
-                <marker date="1460840977724" expanded="true" signature="3138:3275" placeholder="UPDATE games..." />
-                <marker date="1460840977724" expanded="true" signature="4149:4274" placeholder="UPDATE teams..." />
+                <element signature="e#198#234#0" expanded="true" />
+                <element signature="e#1265#1753#0" expanded="true" />
+                <element signature="e#1938#2611#0" expanded="true" />
+                <marker date="1461426443017" expanded="true" signature="412:448" placeholder="SELECT DISTI..games..." />
+                <marker date="1461426443017" expanded="true" signature="607:675" placeholder="SELECT curre..teams..." />
+                <marker date="1461426443017" expanded="true" signature="933:968" placeholder="SELECT DISTI..gamedata..." />
+                <marker date="1461426443017" expanded="true" signature="1289:1336" placeholder="SELECT DISTI..." />
+                <marker date="1461426443017" expanded="true" signature="1439:1578" placeholder="SELECT gameI..games..." />
+                <marker date="1461426443017" expanded="true" signature="1993:2129" placeholder="SELECT DISTI..games..." />
+                <marker date="1461426443017" expanded="true" signature="2942:3079" placeholder="UPDATE games..." />
+                <marker date="1461426443017" expanded="true" signature="3891:3943" placeholder="UPDATE teams..." />
+                <marker date="1461426443017" expanded="true" signature="3891:3945" placeholder="UPDATE teams..." />
+                <marker date="1461426443017" expanded="true" signature="3891:4005" placeholder="UPDATE teams..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="save_game_data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/save_data/save_game_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.352941">
+              <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+                <element signature="e#128#281#0" expanded="true" />
+                <element signature="e#315#734#0" expanded="true" />
+                <element signature="e#761#861#0" expanded="true" />
+                <element signature="e#901#1205#0" expanded="true" />
+                <element signature="e#1234#1969#0" expanded="true" />
+                <marker date="1461445853803" expanded="true" signature="161:264" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="381:484" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="806:847" placeholder="SELECT gameI..games..." />
+                <marker date="1461445853803" expanded="true" signature="936:974" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:981" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:1012" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:1017" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:1022" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:1027" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:1032" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:1037" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:1043" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:1049" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:1054" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:1062" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:1121" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:1173" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="936:1175" placeholder="INSERT OR IG..." />
+                <marker date="1461445853803" expanded="true" signature="1374:1389" placeholder="SELECT DISTI..." />
+                <marker date="1461445853803" expanded="true" signature="1374:1405" placeholder="SELECT DISTI..games..." />
+                <marker date="1461445853803" expanded="true" signature="1520:1623" placeholder="SELECT gameI..games..." />
+                <marker date="1461445853803" expanded="true" signature="1520:1625" placeholder="SELECT gameI..games..." />
+                <marker date="1461445853803" expanded="true" signature="1750:1785" placeholder="SELECT gameI..." />
+                <marker date="1461445853803" expanded="true" signature="1750:1840" placeholder="SELECT gameI..games..." />
+                <marker date="1461445853803" expanded="true" signature="1908:1955" placeholder="SELECT DISTI..games..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="APItasks.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/APItasks.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,8 +164,22 @@
         <entry file="file://$PROJECT_DIR$/calculateData/bettingOdds.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="283" column="14" selection-start-line="283" selection-start-column="14" selection-end-line="283" selection-end-column="14" />
-              <folding />
+              <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+                <element signature="e#3322#3496#0" expanded="true" />
+                <element signature="e#4048#4464#0" expanded="true" />
+                <marker date="1460843194744" expanded="true" signature="198:267" placeholder="SELECT curre..teams..." />
+                <marker date="1460843194744" expanded="true" signature="288:357" placeholder="SELECT curre..teams..." />
+                <marker date="1460843194744" expanded="true" signature="549:674" placeholder="SELECT count..games..." />
+                <marker date="1460843194744" expanded="true" signature="787:981" placeholder="SELECT count..games..." />
+                <marker date="1460843194744" expanded="true" signature="2517:2698" placeholder="SELECT team1..." />
+                <marker date="1460843194744" expanded="true" signature="2780:2961" placeholder="SELECT team2..." />
+                <marker date="1460843194744" expanded="true" signature="6756:6868" placeholder="SELECT name,..players..." />
+                <marker date="1460843194744" expanded="true" signature="7345:7369" placeholder="SELECT * FRO..statistics..." />
+                <marker date="1460843194744" expanded="true" signature="8195:8438" placeholder="SELECT playe..gamedata..." />
+                <marker date="1460843194744" expanded="true" signature="10682:10716" placeholder="SELECT DISTI..teams..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -130,8 +187,8 @@
       <file leaf-file-name="NBA_Game_Updater.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="31.264706">
-              <caret line="133" column="4" selection-start-line="133" selection-start-column="4" selection-end-line="133" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="215" column="45" selection-start-line="215" selection-start-column="45" selection-end-line="215" selection-end-column="45" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
                 <element signature="e#1167#1347#0" expanded="true" />
@@ -139,11 +196,10 @@
                 <element signature="e#1945#2232#0" expanded="true" />
                 <element signature="e#2306#3451#0" expanded="true" />
                 <element signature="e#2630#2744#0" expanded="true" />
-                <element signature="e#3518#5376#0" expanded="true" />
-                <element signature="e#4047#4421#0" expanded="true" />
-                <element signature="e#4473#5128#0" expanded="true" />
-                <element signature="e#5432#9877#0" expanded="true" />
-                <element signature="e#6654#8875#0" expanded="true" />
+                <element signature="e#3518#5321#0" expanded="true" />
+                <element signature="e#3992#4366#0" expanded="true" />
+                <element signature="e#4418#5073#0" expanded="true" />
+                <element signature="e#6599#8832#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -182,7 +238,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/calculateData/bettingOdds.py" />
         <option value="$PROJECT_DIR$/data_layer/__init__.py" />
         <option value="$PROJECT_DIR$/data_layer/players.py" />
         <option value="$PROJECT_DIR$/data_layer/teams.py" />
@@ -193,10 +248,12 @@
         <option value="$PROJECT_DIR$/scrapeData/refactor.py" />
         <option value="$PROJECT_DIR$/save_data/create_tables_nba.py" />
         <option value="$PROJECT_DIR$/scrapeData/scrape_game_data.py" />
-        <option value="$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py" />
-        <option value="$PROJECT_DIR$/scrapeData/data_coordinator.py" />
-        <option value="$PROJECT_DIR$/save_data/save_game_data.py" />
+        <option value="$PROJECT_DIR$/calculateData/bettingOdds.py" />
+        <option value="$PROJECT_DIR$/fixData/meanSD.py" />
         <option value="$PROJECT_DIR$/fixData/teamElo.py" />
+        <option value="$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py" />
+        <option value="$PROJECT_DIR$/save_data/save_game_data.py" />
+        <option value="$PROJECT_DIR$/scrapeData/data_coordinator.py" />
       </list>
     </option>
   </component>
@@ -216,9 +273,23 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="81" />
-    <option name="y" value="94" />
-    <option name="width" value="1819" />
-    <option name="height" value="915" />
+    <option name="y" value="30" />
+    <option name="width" value="1839" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id>Android Lint</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -244,7 +315,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -298,6 +368,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="urllib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jkproj" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 3.4.0 (/usr/bin/python3.4) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist-packages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -369,6 +457,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -382,6 +471,8 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/jason/basketball_project/jkproj/scrapeData/refactor.py" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -934,16 +1025,21 @@
       <workItem from="1460217092101" duration="19454000" />
       <workItem from="1460600543325" duration="1412000" />
       <workItem from="1460688413334" duration="4526000" />
-      <workItem from="1460809249159" duration="14243000" />
+      <workItem from="1460809249159" duration="15848000" />
+      <workItem from="1460852010394" duration="21041000" />
+      <workItem from="1461034119503" duration="5836000" />
+      <workItem from="1461041712998" duration="12028000" />
+      <workItem from="1461205728644" duration="5732000" />
+      <workItem from="1461363582910" duration="18453000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53672000" />
+    <option name="totallyTimeSpent" value="118367000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="81" y="94" width="1819" height="915" extended-state="0" />
-    <editor active="false" />
+    <frame x="81" y="30" width="1839" height="1050" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -952,17 +1048,17 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32950193" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822478" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278867" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2368272" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23641457" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4687101" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46732026" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -970,6 +1066,32 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3278867" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23641457" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4684096" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -990,19 +1112,24 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/scrapeData/data_coordinator.py</url>
-          <line>35</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/calculateData/bettingOdds.py</url>
+          <line>84</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/save_data/save_game_data.py</url>
+          <line>52</line>
+          <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/scrapeData/data_coordinator.py</url>
-          <line>31</line>
-          <option name="timeStamp" value="16" />
+          <line>93</line>
+          <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/fixData/teamElo.py</url>
-          <line>129</line>
-          <option name="timeStamp" value="23" />
+          <url>file://$PROJECT_DIR$/save_data/save_game_data.py</url>
+          <line>49</line>
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -1012,7 +1139,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="24" />
+      <option name="time" value="73" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1021,20 +1148,52 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scrapeData/notebook.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="-1" />
+    <entry file="file://$PROJECT_DIR$/save_data/save_game_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#128#281#0" expanded="true" />
+            <element signature="e#315#734#0" expanded="true" />
+            <element signature="e#761#861#0" expanded="true" />
+            <element signature="e#901#1205#0" expanded="true" />
+            <element signature="e#1234#1969#0" expanded="true" />
+            <marker date="1461445853803" expanded="true" signature="161:264" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="381:484" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="806:847" placeholder="SELECT gameI..games..." />
+            <marker date="1461445853803" expanded="true" signature="936:974" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:981" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1012" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1017" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1022" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1027" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1032" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1037" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1043" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1049" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1054" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1062" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1121" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1173" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1175" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="1374:1389" placeholder="SELECT DISTI..." />
+            <marker date="1461445853803" expanded="true" signature="1374:1405" placeholder="SELECT DISTI..games..." />
+            <marker date="1461445853803" expanded="true" signature="1520:1623" placeholder="SELECT gameI..games..." />
+            <marker date="1461445853803" expanded="true" signature="1520:1625" placeholder="SELECT gameI..games..." />
+            <marker date="1461445853803" expanded="true" signature="1750:1785" placeholder="SELECT gameI..." />
+            <marker date="1461445853803" expanded="true" signature="1750:1840" placeholder="SELECT gameI..games..." />
+            <marker date="1461445853803" expanded="true" signature="1908:1955" placeholder="SELECT DISTI..games..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scrapeData/scrape_game_data.py">
+    <entry file="file://$PROJECT_DIR$/APItasks.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="68" selection-start-line="76" selection-start-column="68" selection-end-line="76" selection-end-column="68" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#1370#3501#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1042,32 +1201,21 @@
     <entry file="file://$PROJECT_DIR$/calculateData/bettingOdds.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/save_data/create_tables_nba.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
           <folding>
-            <marker date="1459010538764" expanded="true" signature="117:336" placeholder="CREATE TABLE..games..." />
-            <marker date="1459010538764" expanded="true" signature="365:576" placeholder="CREATE TABLE..players..." />
-            <marker date="1459010538764" expanded="true" signature="605:1210" placeholder="CREATE TABLE..gameData..." />
-            <marker date="1459010538764" expanded="true" signature="1240:1289" placeholder="CREATE TABLE..teams..." />
-            <marker date="1459010538764" expanded="true" signature="1328:1418" placeholder="CREATE TABLE..statistics..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fixData/meanSD.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-            <marker date="1459010538516" expanded="true" signature="-1:-1" placeholder="SELECT minut..gamedata..." />
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#3322#3496#0" expanded="true" />
+            <element signature="e#4048#4464#0" expanded="true" />
+            <marker date="1460843194744" expanded="true" signature="198:267" placeholder="SELECT curre..teams..." />
+            <marker date="1460843194744" expanded="true" signature="288:357" placeholder="SELECT curre..teams..." />
+            <marker date="1460843194744" expanded="true" signature="549:674" placeholder="SELECT count..games..." />
+            <marker date="1460843194744" expanded="true" signature="787:981" placeholder="SELECT count..games..." />
+            <marker date="1460843194744" expanded="true" signature="2517:2698" placeholder="SELECT team1..." />
+            <marker date="1460843194744" expanded="true" signature="2780:2961" placeholder="SELECT team2..." />
+            <marker date="1460843194744" expanded="true" signature="6756:6868" placeholder="SELECT name,..players..." />
+            <marker date="1460843194744" expanded="true" signature="7345:7369" placeholder="SELECT * FRO..statistics..." />
+            <marker date="1460843194744" expanded="true" signature="8195:8438" placeholder="SELECT playe..gamedata..." />
+            <marker date="1460843194744" expanded="true" signature="10682:10716" placeholder="SELECT DISTI..teams..." />
           </folding>
         </state>
       </provider>
@@ -1075,7 +1223,7 @@
     <entry file="file://$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="457" column="8" selection-start-line="457" selection-start-column="0" selection-end-line="706" selection-end-column="0" />
+          <caret line="195" column="22" selection-start-line="195" selection-start-column="22" selection-end-line="195" selection-end-column="22" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
             <element signature="e#1167#1347#0" expanded="true" />
@@ -1083,208 +1231,11 @@
             <element signature="e#1945#2232#0" expanded="true" />
             <element signature="e#2306#3451#0" expanded="true" />
             <element signature="e#2630#2744#0" expanded="true" />
-            <element signature="e#3518#5376#0" expanded="true" />
-            <element signature="e#4047#4421#0" expanded="true" />
-            <element signature="e#4473#5128#0" expanded="true" />
-            <element signature="e#5432#9877#0" expanded="true" />
-            <element signature="e#6654#8875#0" expanded="true" />
+            <element signature="e#3518#5321#0" expanded="true" />
+            <element signature="e#3992#4366#0" expanded="true" />
+            <element signature="e#4418#5073#0" expanded="true" />
+            <element signature="e#6599#8832#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scrapeData/scrape_game_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#1370#3501#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectAPI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calculateData/bettingOdds.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/save_data/create_tables_nba.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <marker date="1459010538764" expanded="true" signature="117:336" placeholder="CREATE TABLE..games..." />
-            <marker date="1459010538764" expanded="true" signature="365:576" placeholder="CREATE TABLE..players..." />
-            <marker date="1459010538764" expanded="true" signature="605:1210" placeholder="CREATE TABLE..gameData..." />
-            <marker date="1459010538764" expanded="true" signature="1240:1289" placeholder="CREATE TABLE..teams..." />
-            <marker date="1459010538764" expanded="true" signature="1328:1418" placeholder="CREATE TABLE..statistics..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fixData/meanSD.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-            <marker date="1459010538516" expanded="true" signature="-1:-1" placeholder="SELECT minut..gamedata..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#1167#1347#0" expanded="true" />
-            <element signature="e#1400#1800#0" expanded="true" />
-            <element signature="e#1945#2232#0" expanded="true" />
-            <element signature="e#2306#3451#0" expanded="true" />
-            <element signature="e#2630#2744#0" expanded="true" />
-            <element signature="e#3518#5376#0" expanded="true" />
-            <element signature="e#4047#4421#0" expanded="true" />
-            <element signature="e#4473#5128#0" expanded="true" />
-            <element signature="e#5432#9877#0" expanded="true" />
-            <element signature="e#6654#8875#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectAPI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/calculateData/bettingOdds.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/save_data/create_tables_nba.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <marker date="1459010538764" expanded="true" signature="117:336" placeholder="CREATE TABLE..games..." />
-            <marker date="1459010538764" expanded="true" signature="365:576" placeholder="CREATE TABLE..players..." />
-            <marker date="1459010538764" expanded="true" signature="605:1210" placeholder="CREATE TABLE..gameData..." />
-            <marker date="1459010538764" expanded="true" signature="1240:1289" placeholder="CREATE TABLE..teams..." />
-            <marker date="1459010538764" expanded="true" signature="1328:1418" placeholder="CREATE TABLE..statistics..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fixData/meanSD.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-            <marker date="1459010538516" expanded="true" signature="-1:-1" placeholder="SELECT minut..gamedata..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#1167#1347#0" expanded="true" />
-            <element signature="e#1400#1800#0" expanded="true" />
-            <element signature="e#1945#2232#0" expanded="true" />
-            <element signature="e#2306#3451#0" expanded="true" />
-            <element signature="e#2630#2744#0" expanded="true" />
-            <element signature="e#3518#5376#0" expanded="true" />
-            <element signature="e#4047#4421#0" expanded="true" />
-            <element signature="e#4473#5128#0" expanded="true" />
-            <element signature="e#5432#9877#0" expanded="true" />
-            <element signature="e#6654#8875#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectAPI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projectAPI.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/codejam1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21176471">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fixData/meanSD.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-            <marker date="1459010538516" expanded="true" signature="-1:-1" placeholder="SELECT minut..gamedata..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.4/urllib/request.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="587" column="0" selection-start-line="587" selection-start-column="0" selection-end-line="587" selection-end-column="0" />
-          <folding>
-            <element signature="e#19515#19565#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_PLUGINS_DIR$/python/helpers/pydev/pydevd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58301157">
-          <caret line="2357" column="0" selection-start-line="2357" selection-start-column="0" selection-end-line="2357" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scrapeData/notebook.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/save_data/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1295,50 +1246,6 @@
           <folding>
             <element signature="e#0#13#0" expanded="true" />
             <element signature="e#1370#3501#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="31.264706">
-          <caret line="133" column="4" selection-start-line="133" selection-start-column="4" selection-end-line="133" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#1167#1347#0" expanded="true" />
-            <element signature="e#1400#1800#0" expanded="true" />
-            <element signature="e#1945#2232#0" expanded="true" />
-            <element signature="e#2306#3451#0" expanded="true" />
-            <element signature="e#2630#2744#0" expanded="true" />
-            <element signature="e#3518#5376#0" expanded="true" />
-            <element signature="e#4047#4421#0" expanded="true" />
-            <element signature="e#4473#5128#0" expanded="true" />
-            <element signature="e#5432#9877#0" expanded="true" />
-            <element signature="e#6654#8875#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/save_data/save_game_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#135#284#0" expanded="true" />
-            <element signature="e#332#336#0" expanded="true" />
-            <element signature="e#382#386#0" expanded="true" />
-            <marker date="1460839316596" expanded="true" signature="152:255" placeholder="INSERT OR IG..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scrapeData/data_coordinator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
-            <element signature="e#983#987#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1362,33 +1269,615 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calculateData/bettingOdds.py">
+    <entry file="file://$PROJECT_DIR$/scrapeData/data_coordinator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="283" column="14" selection-start-line="283" selection-start-column="14" selection-end-line="283" selection-end-column="14" />
-          <folding />
+          <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+            <element signature="e#2418#3283#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_data/save_game_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#128#281#0" expanded="true" />
+            <element signature="e#315#734#0" expanded="true" />
+            <element signature="e#761#861#0" expanded="true" />
+            <element signature="e#901#1205#0" expanded="true" />
+            <element signature="e#1234#1969#0" expanded="true" />
+            <marker date="1461445853803" expanded="true" signature="161:264" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="381:484" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="806:847" placeholder="SELECT gameI..games..." />
+            <marker date="1461445853803" expanded="true" signature="936:974" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:981" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1012" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1017" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1022" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1027" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1032" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1037" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1043" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1049" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1054" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1062" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1121" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1173" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1175" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="1374:1389" placeholder="SELECT DISTI..." />
+            <marker date="1461445853803" expanded="true" signature="1374:1405" placeholder="SELECT DISTI..games..." />
+            <marker date="1461445853803" expanded="true" signature="1520:1623" placeholder="SELECT gameI..games..." />
+            <marker date="1461445853803" expanded="true" signature="1520:1625" placeholder="SELECT gameI..games..." />
+            <marker date="1461445853803" expanded="true" signature="1750:1785" placeholder="SELECT gameI..." />
+            <marker date="1461445853803" expanded="true" signature="1750:1840" placeholder="SELECT gameI..games..." />
+            <marker date="1461445853803" expanded="true" signature="1908:1955" placeholder="SELECT DISTI..games..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fixData/teamElo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1585366">
-          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="131" column="26" selection-start-line="131" selection-start-column="26" selection-end-line="131" selection-end-column="26" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <element signature="e#297#1241#0" expanded="true" />
-            <element signature="e#1265#1883#0" expanded="true" />
-            <element signature="e#1909#4320#0" expanded="true" />
-            <element signature="e#2068#2807#0" expanded="true" />
-            <element signature="e#2852#3901#0" expanded="true" />
-            <marker date="1460840977724" expanded="true" signature="412:448" placeholder="SELECT DISTI..games..." />
-            <marker date="1460840977724" expanded="true" signature="607:675" placeholder="SELECT curre..teams..." />
-            <marker date="1460840977724" expanded="true" signature="933:968" placeholder="SELECT DISTI..gamedata..." />
-            <marker date="1460840977724" expanded="true" signature="1362:1409" placeholder="SELECT DISTI..." />
-            <marker date="1460840977724" expanded="true" signature="1557:1696" placeholder="SELECT gameI..games..." />
-            <marker date="1460840977724" expanded="true" signature="2189:2325" placeholder="SELECT DISTI..games..." />
-            <marker date="1460840977724" expanded="true" signature="3138:3275" placeholder="UPDATE games..." />
-            <marker date="1460840977724" expanded="true" signature="4149:4274" placeholder="UPDATE teams..." />
+            <element signature="e#198#234#0" expanded="true" />
+            <element signature="e#1265#1753#0" expanded="true" />
+            <element signature="e#1938#2611#0" expanded="true" />
+            <marker date="1461426443017" expanded="true" signature="412:448" placeholder="SELECT DISTI..games..." />
+            <marker date="1461426443017" expanded="true" signature="607:675" placeholder="SELECT curre..teams..." />
+            <marker date="1461426443017" expanded="true" signature="933:968" placeholder="SELECT DISTI..gamedata..." />
+            <marker date="1461426443017" expanded="true" signature="1289:1336" placeholder="SELECT DISTI..." />
+            <marker date="1461426443017" expanded="true" signature="1439:1578" placeholder="SELECT gameI..games..." />
+            <marker date="1461426443017" expanded="true" signature="1993:2129" placeholder="SELECT DISTI..games..." />
+            <marker date="1461426443017" expanded="true" signature="2942:3079" placeholder="UPDATE games..." />
+            <marker date="1461426443017" expanded="true" signature="3891:3943" placeholder="UPDATE teams..." />
+            <marker date="1461426443017" expanded="true" signature="3891:3945" placeholder="UPDATE teams..." />
+            <marker date="1461426443017" expanded="true" signature="3891:4005" placeholder="UPDATE teams..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/APItasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calculateData/bettingOdds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#3322#3496#0" expanded="true" />
+            <element signature="e#4048#4464#0" expanded="true" />
+            <marker date="1460843194744" expanded="true" signature="198:267" placeholder="SELECT curre..teams..." />
+            <marker date="1460843194744" expanded="true" signature="288:357" placeholder="SELECT curre..teams..." />
+            <marker date="1460843194744" expanded="true" signature="549:674" placeholder="SELECT count..games..." />
+            <marker date="1460843194744" expanded="true" signature="787:981" placeholder="SELECT count..games..." />
+            <marker date="1460843194744" expanded="true" signature="2517:2698" placeholder="SELECT team1..." />
+            <marker date="1460843194744" expanded="true" signature="2780:2961" placeholder="SELECT team2..." />
+            <marker date="1460843194744" expanded="true" signature="6756:6868" placeholder="SELECT name,..players..." />
+            <marker date="1460843194744" expanded="true" signature="7345:7369" placeholder="SELECT * FRO..statistics..." />
+            <marker date="1460843194744" expanded="true" signature="8195:8438" placeholder="SELECT playe..gamedata..." />
+            <marker date="1460843194744" expanded="true" signature="10682:10716" placeholder="SELECT DISTI..teams..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="133" column="4" selection-start-line="133" selection-start-column="4" selection-end-line="133" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1167#1347#0" expanded="true" />
+            <element signature="e#1400#1800#0" expanded="true" />
+            <element signature="e#1945#2232#0" expanded="true" />
+            <element signature="e#2306#3451#0" expanded="true" />
+            <element signature="e#2630#2744#0" expanded="true" />
+            <element signature="e#3518#5321#0" expanded="true" />
+            <element signature="e#3992#4366#0" expanded="true" />
+            <element signature="e#4418#5073#0" expanded="true" />
+            <element signature="e#6599#8832#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapeData/scrape_game_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1370#3501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapeData/notebook.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="-1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapeData/scrape_game_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="68" selection-start-line="76" selection-start-column="68" selection-end-line="76" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1370#3501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calculateData/bettingOdds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#3322#3496#0" expanded="true" />
+            <element signature="e#4048#4464#0" expanded="true" />
+            <marker date="1460843194744" expanded="true" signature="198:267" placeholder="SELECT curre..teams..." />
+            <marker date="1460843194744" expanded="true" signature="288:357" placeholder="SELECT curre..teams..." />
+            <marker date="1460843194744" expanded="true" signature="549:674" placeholder="SELECT count..games..." />
+            <marker date="1460843194744" expanded="true" signature="787:981" placeholder="SELECT count..games..." />
+            <marker date="1460843194744" expanded="true" signature="2517:2698" placeholder="SELECT team1..." />
+            <marker date="1460843194744" expanded="true" signature="2780:2961" placeholder="SELECT team2..." />
+            <marker date="1460843194744" expanded="true" signature="6756:6868" placeholder="SELECT name,..players..." />
+            <marker date="1460843194744" expanded="true" signature="7345:7369" placeholder="SELECT * FRO..statistics..." />
+            <marker date="1460843194744" expanded="true" signature="8195:8438" placeholder="SELECT playe..gamedata..." />
+            <marker date="1460843194744" expanded="true" signature="10682:10716" placeholder="SELECT DISTI..teams..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_data/create_tables_nba.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <marker date="1459010538764" expanded="true" signature="117:336" placeholder="CREATE TABLE..games..." />
+            <marker date="1459010538764" expanded="true" signature="365:576" placeholder="CREATE TABLE..players..." />
+            <marker date="1459010538764" expanded="true" signature="605:1210" placeholder="CREATE TABLE..gameData..." />
+            <marker date="1459010538764" expanded="true" signature="1240:1289" placeholder="CREATE TABLE..teams..." />
+            <marker date="1459010538764" expanded="true" signature="1328:1418" placeholder="CREATE TABLE..statistics..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fixData/meanSD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="457" column="8" selection-start-line="457" selection-start-column="0" selection-end-line="706" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1167#1347#0" expanded="true" />
+            <element signature="e#1400#1800#0" expanded="true" />
+            <element signature="e#1945#2232#0" expanded="true" />
+            <element signature="e#2306#3451#0" expanded="true" />
+            <element signature="e#2630#2744#0" expanded="true" />
+            <element signature="e#3518#5321#0" expanded="true" />
+            <element signature="e#3992#4366#0" expanded="true" />
+            <element signature="e#4418#5073#0" expanded="true" />
+            <element signature="e#6599#8832#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapeData/scrape_game_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1370#3501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calculateData/bettingOdds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#3322#3496#0" expanded="true" />
+            <element signature="e#4048#4464#0" expanded="true" />
+            <marker date="1460843194744" expanded="true" signature="198:267" placeholder="SELECT curre..teams..." />
+            <marker date="1460843194744" expanded="true" signature="288:357" placeholder="SELECT curre..teams..." />
+            <marker date="1460843194744" expanded="true" signature="549:674" placeholder="SELECT count..games..." />
+            <marker date="1460843194744" expanded="true" signature="787:981" placeholder="SELECT count..games..." />
+            <marker date="1460843194744" expanded="true" signature="2517:2698" placeholder="SELECT team1..." />
+            <marker date="1460843194744" expanded="true" signature="2780:2961" placeholder="SELECT team2..." />
+            <marker date="1460843194744" expanded="true" signature="6756:6868" placeholder="SELECT name,..players..." />
+            <marker date="1460843194744" expanded="true" signature="7345:7369" placeholder="SELECT * FRO..statistics..." />
+            <marker date="1460843194744" expanded="true" signature="8195:8438" placeholder="SELECT playe..gamedata..." />
+            <marker date="1460843194744" expanded="true" signature="10682:10716" placeholder="SELECT DISTI..teams..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_data/create_tables_nba.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <marker date="1459010538764" expanded="true" signature="117:336" placeholder="CREATE TABLE..games..." />
+            <marker date="1459010538764" expanded="true" signature="365:576" placeholder="CREATE TABLE..players..." />
+            <marker date="1459010538764" expanded="true" signature="605:1210" placeholder="CREATE TABLE..gameData..." />
+            <marker date="1459010538764" expanded="true" signature="1240:1289" placeholder="CREATE TABLE..teams..." />
+            <marker date="1459010538764" expanded="true" signature="1328:1418" placeholder="CREATE TABLE..statistics..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fixData/meanSD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1167#1347#0" expanded="true" />
+            <element signature="e#1400#1800#0" expanded="true" />
+            <element signature="e#1945#2232#0" expanded="true" />
+            <element signature="e#2306#3451#0" expanded="true" />
+            <element signature="e#2630#2744#0" expanded="true" />
+            <element signature="e#3518#5321#0" expanded="true" />
+            <element signature="e#3992#4366#0" expanded="true" />
+            <element signature="e#4418#5073#0" expanded="true" />
+            <element signature="e#6599#8832#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calculateData/bettingOdds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#3322#3496#0" expanded="true" />
+            <element signature="e#4048#4464#0" expanded="true" />
+            <marker date="1460843194744" expanded="true" signature="198:267" placeholder="SELECT curre..teams..." />
+            <marker date="1460843194744" expanded="true" signature="288:357" placeholder="SELECT curre..teams..." />
+            <marker date="1460843194744" expanded="true" signature="549:674" placeholder="SELECT count..games..." />
+            <marker date="1460843194744" expanded="true" signature="787:981" placeholder="SELECT count..games..." />
+            <marker date="1460843194744" expanded="true" signature="2517:2698" placeholder="SELECT team1..." />
+            <marker date="1460843194744" expanded="true" signature="2780:2961" placeholder="SELECT team2..." />
+            <marker date="1460843194744" expanded="true" signature="6756:6868" placeholder="SELECT name,..players..." />
+            <marker date="1460843194744" expanded="true" signature="7345:7369" placeholder="SELECT * FRO..statistics..." />
+            <marker date="1460843194744" expanded="true" signature="8195:8438" placeholder="SELECT playe..gamedata..." />
+            <marker date="1460843194744" expanded="true" signature="10682:10716" placeholder="SELECT DISTI..teams..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_data/create_tables_nba.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <marker date="1459010538764" expanded="true" signature="117:336" placeholder="CREATE TABLE..games..." />
+            <marker date="1459010538764" expanded="true" signature="365:576" placeholder="CREATE TABLE..players..." />
+            <marker date="1459010538764" expanded="true" signature="605:1210" placeholder="CREATE TABLE..gameData..." />
+            <marker date="1459010538764" expanded="true" signature="1240:1289" placeholder="CREATE TABLE..teams..." />
+            <marker date="1459010538764" expanded="true" signature="1328:1418" placeholder="CREATE TABLE..statistics..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fixData/meanSD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1167#1347#0" expanded="true" />
+            <element signature="e#1400#1800#0" expanded="true" />
+            <element signature="e#1945#2232#0" expanded="true" />
+            <element signature="e#2306#3451#0" expanded="true" />
+            <element signature="e#2630#2744#0" expanded="true" />
+            <element signature="e#3518#5321#0" expanded="true" />
+            <element signature="e#3992#4366#0" expanded="true" />
+            <element signature="e#4418#5073#0" expanded="true" />
+            <element signature="e#6599#8832#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/codejam1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21176471">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.4/urllib/request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="587" column="0" selection-start-line="587" selection-start-column="0" selection-end-line="587" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapeData/notebook.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_data/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapeData/scrape_game_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1370#3501#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/APItasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projectAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/calculateData/bettingOdds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="101" column="9" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#3322#3496#0" expanded="true" />
+            <element signature="e#4048#4464#0" expanded="true" />
+            <marker date="1460843194744" expanded="true" signature="198:267" placeholder="SELECT curre..teams..." />
+            <marker date="1460843194744" expanded="true" signature="288:357" placeholder="SELECT curre..teams..." />
+            <marker date="1460843194744" expanded="true" signature="549:674" placeholder="SELECT count..games..." />
+            <marker date="1460843194744" expanded="true" signature="787:981" placeholder="SELECT count..games..." />
+            <marker date="1460843194744" expanded="true" signature="2517:2698" placeholder="SELECT team1..." />
+            <marker date="1460843194744" expanded="true" signature="2780:2961" placeholder="SELECT team2..." />
+            <marker date="1460843194744" expanded="true" signature="6756:6868" placeholder="SELECT name,..players..." />
+            <marker date="1460843194744" expanded="true" signature="7345:7369" placeholder="SELECT * FRO..statistics..." />
+            <marker date="1460843194744" expanded="true" signature="8195:8438" placeholder="SELECT playe..gamedata..." />
+            <marker date="1460843194744" expanded="true" signature="10682:10716" placeholder="SELECT DISTI..teams..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.4/multiprocessing/pool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="598" column="0" selection-start-line="598" selection-start-column="0" selection-end-line="598" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3/dist-packages/bs4/builder/_lxml.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.4/enum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="195" column="0" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3/dist-packages/bs4/element.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1561" column="37" selection-start-line="1561" selection-start-column="37" selection-end-line="1561" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_PLUGINS_DIR$/python/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2355" column="51" selection-start-line="2355" selection-start-column="51" selection-end-line="2355" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fixData/meanSD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#1274#1581#0" expanded="true" />
+            <marker date="1461116865987" expanded="true" signature="196:328" placeholder="SELECT minut..gamedata..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_data/create_tables_nba.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+          <folding>
+            <marker date="1459010538764" expanded="true" signature="117:336" placeholder="CREATE TABLE..games..." />
+            <marker date="1459010538764" expanded="true" signature="365:576" placeholder="CREATE TABLE..players..." />
+            <marker date="1459010538764" expanded="true" signature="605:1210" placeholder="CREATE TABLE..gameData..." />
+            <marker date="1459010538764" expanded="true" signature="1240:1289" placeholder="CREATE TABLE..teams..." />
+            <marker date="1459010538764" expanded="true" signature="1328:1418" placeholder="CREATE TABLE..statistics..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapeData/NBA_Game_Updater.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="215" column="45" selection-start-line="215" selection-start-column="45" selection-end-line="215" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#1167#1347#0" expanded="true" />
+            <element signature="e#1400#1800#0" expanded="true" />
+            <element signature="e#1945#2232#0" expanded="true" />
+            <element signature="e#2306#3451#0" expanded="true" />
+            <element signature="e#2630#2744#0" expanded="true" />
+            <element signature="e#3518#5321#0" expanded="true" />
+            <element signature="e#3992#4366#0" expanded="true" />
+            <element signature="e#4418#5073#0" expanded="true" />
+            <element signature="e#6599#8832#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/save_data/save_game_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.352941">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#128#281#0" expanded="true" />
+            <element signature="e#315#734#0" expanded="true" />
+            <element signature="e#761#861#0" expanded="true" />
+            <element signature="e#901#1205#0" expanded="true" />
+            <element signature="e#1234#1969#0" expanded="true" />
+            <marker date="1461445853803" expanded="true" signature="161:264" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="381:484" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="806:847" placeholder="SELECT gameI..games..." />
+            <marker date="1461445853803" expanded="true" signature="936:974" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:981" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1012" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1017" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1022" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1027" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1032" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1037" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1043" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1049" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1054" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1062" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1121" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1173" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="936:1175" placeholder="INSERT OR IG..." />
+            <marker date="1461445853803" expanded="true" signature="1374:1389" placeholder="SELECT DISTI..." />
+            <marker date="1461445853803" expanded="true" signature="1374:1405" placeholder="SELECT DISTI..games..." />
+            <marker date="1461445853803" expanded="true" signature="1520:1623" placeholder="SELECT gameI..games..." />
+            <marker date="1461445853803" expanded="true" signature="1520:1625" placeholder="SELECT gameI..games..." />
+            <marker date="1461445853803" expanded="true" signature="1750:1785" placeholder="SELECT gameI..." />
+            <marker date="1461445853803" expanded="true" signature="1750:1840" placeholder="SELECT gameI..games..." />
+            <marker date="1461445853803" expanded="true" signature="1908:1955" placeholder="SELECT DISTI..games..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrapeData/data_coordinator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+            <element signature="e#2418#3283#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fixData/teamElo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.021929825">
+          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#198#234#0" expanded="true" />
+            <element signature="e#1265#1753#0" expanded="true" />
+            <element signature="e#1938#2611#0" expanded="true" />
+            <marker date="1461426443017" expanded="true" signature="412:448" placeholder="SELECT DISTI..games..." />
+            <marker date="1461426443017" expanded="true" signature="607:675" placeholder="SELECT curre..teams..." />
+            <marker date="1461426443017" expanded="true" signature="933:968" placeholder="SELECT DISTI..gamedata..." />
+            <marker date="1461426443017" expanded="true" signature="1289:1336" placeholder="SELECT DISTI..." />
+            <marker date="1461426443017" expanded="true" signature="1439:1578" placeholder="SELECT gameI..games..." />
+            <marker date="1461426443017" expanded="true" signature="1993:2129" placeholder="SELECT DISTI..games..." />
+            <marker date="1461426443017" expanded="true" signature="2942:3079" placeholder="UPDATE games..." />
+            <marker date="1461426443017" expanded="true" signature="3891:3943" placeholder="UPDATE teams..." />
+            <marker date="1461426443017" expanded="true" signature="3891:3945" placeholder="UPDATE teams..." />
+            <marker date="1461426443017" expanded="true" signature="3891:4005" placeholder="UPDATE teams..." />
           </folding>
         </state>
       </provider>
