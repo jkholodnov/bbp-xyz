@@ -8,6 +8,13 @@ from fixData import teamElo
 def main(year: str):
     teams = nba.get_team_abbreviations()
 
+
+    rosters = [nba.get_roster_for_team(team, year) for team in teams]
+    rosters_dbos = [item for sublist in rosters for item in sublist]
+
+    db.save_rosters(rosters_dbos)
+
+
     team_game_ids_map = {team: nba.get_game_ids(team, year) for team in teams}
 
     scraped_game_ids = []
@@ -63,9 +70,6 @@ def main(year: str):
                     player_dbos.append(player_dbo)
 
         return player_dbos
-
-    game_dbos = Queue()
-    player_dbos = Queue()
 
     def save_game_and_players(game):
         game_date = game[0]

@@ -44,7 +44,7 @@ def get_response_time_of_url(num_pings, url):
 # median_response_time_of_server = get_response_time_of_url(50, "http://espn.go.com/nba/team/_/name/mia")
 
 
-def get_team_abbreviations():
+def get_team_abbreviations() -> list:
     team_urls = [
         "bkn", "nyk", "phi", "tor", "gs", "lac",
         "lal", "phx", "sac", "chi", "cle", "det",
@@ -55,7 +55,7 @@ def get_team_abbreviations():
     return team_urls
 
 
-def get_roster_for_team(team_abbreviation: str, season_year: str):
+def get_roster_for_team(team_abbreviation: str, season_year: str) -> list:
     team_roster_url = "http://espn.go.com/nba/team/roster/_/name/" + team_abbreviation
     roster_soup = BeautifulSoup(urllib.request.urlopen(team_roster_url, timeout=100).read())
 
@@ -71,7 +71,7 @@ def get_roster_for_team(team_abbreviation: str, season_year: str):
     for row in player_rows:
         data = row.find_all('td')
         player_link = data[1].find('a')
-        player_id = player_link.get('href').replace("http://espn.go.com/nba/player/_/id/")
+        player_id = player_link.get('href').replace("http://espn.go.com/nba/player/_/id/", "")
         pos = player_id.find("/")
         player_id = player_id[:pos]
         name = data[1].getText()
@@ -85,7 +85,7 @@ def get_roster_for_team(team_abbreviation: str, season_year: str):
     return players_data
 
 
-def get_game_ids(team_abbreviation: str, season_year: str):
+def get_game_ids(team_abbreviation: str, season_year: str) -> list:
     team_schedule = "http://espn.go.com/nba/team/schedule/_/name/" + team_abbreviation + "/year/" + season_year + "/"
     preseason_url = team_schedule + "seasontype/1/"
     midseason_url = team_schedule + "seasontype/2/"
@@ -221,7 +221,3 @@ def scrape_gameid(game_id: str, attempt: int=0):
         return results
     except:
         scrape_gameid(game_id, attempt + 1)
-
-# TODO: MAKE IT RIGHT:
-
-# SEATTLE SUPERSONICS CASE: 280408006

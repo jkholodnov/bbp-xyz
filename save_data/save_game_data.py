@@ -4,13 +4,17 @@ import sys
 con = lite.connect('../predict.db', isolation_level=None)
 
 
-def save_games(games: list):
+def save_games(games: list) -> None:
     return con.executemany(
         "INSERT OR IGNORE INTO games(gameID, day,Team1Abbr,Team2Abbr,Team1Score,Team2Score) VALUES (?,?,?,?,?,?)",
         games)
 
 
-def save_game(game: dict):
+def save_rosters(players: list) -> None:
+    con.executemany("INSERT OR IGNORE INTO players VALUES(?,?,?,?,?,?,?,?)",players)
+
+
+def save_game(game: dict) -> None:
     game_dbo = game["game"]
     save_the_game = con.execute(
         "INSERT OR IGNORE INTO games(gameID, day,Team1Abbr,Team2Abbr,Team1Score,Team2Score) VALUES (?,?,?,?,?,?)",
@@ -21,18 +25,16 @@ def save_game(game: dict):
     save_players(filtered_player_dbos)
     sys.stdout.write(".")
     sys.stdout.flush()
-    return 0
+
+
+def save_players(players: list) -> None:
+    result = con.executemany(
+        "INSERT OR IGNORE INTO gameData(gameID, teamID, playerID, Name, minutes, fgm, fga, tpm, tpa, ftm, fta, oreb, dreb, reb, assist, steal, block, turnover, fouls, plus_minus, points, injury) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        players)
 
 
 def get_game_ids():
     return [gameid[0] for gameid in con.execute("SELECT gameID FROM games ORDER BY day ASC").fetchall()]
-
-
-def save_players(players: list):
-    result = con.executemany(
-        "INSERT OR IGNORE INTO gameData(gameID, teamID, playerID, Name, minutes, fgm, fga, tpm, tpa, ftm, fta, oreb, dreb, reb, assist, steal, block, turnover, fouls, plus_minus, points, injury) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
-        players)
-    return 0
 
 
 def get_game_dates():
