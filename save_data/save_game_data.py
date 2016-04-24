@@ -1,7 +1,12 @@
 import sqlite3 as lite
 import sys
 
-con = lite.connect('../predict.db', isolation_level=None)
+import os
+
+print(os.path.dirname(os.path.abspath(__file__)))
+print(os.getcwd())
+
+con = lite.connect('../resources/predict.db', isolation_level=None)
 
 
 def save_games(games: list) -> None:
@@ -11,7 +16,7 @@ def save_games(games: list) -> None:
 
 
 def save_rosters(players: list) -> None:
-    con.executemany("INSERT OR IGNORE INTO players VALUES(?,?,?,?,?,?,?,?)",players)
+    con.executemany("INSERT OR IGNORE INTO players VALUES(?,?,?,?,?,?,?,?)", players)
 
 
 def save_game(game: dict) -> None:
