@@ -57,7 +57,7 @@ def get_team_abbreviations() -> list:
 
 def get_roster_for_team(team_abbreviation: str, season_year: str) -> list:
     team_roster_url = "http://espn.go.com/nba/team/roster/_/name/" + team_abbreviation
-    roster_soup = BeautifulSoup(urllib.request.urlopen(team_roster_url, timeout=100).read())
+    roster_soup = BeautifulSoup(urllib.request.urlopen(team_roster_url, timeout=10).read())
 
     player_rows = roster_soup.find_all('tr', class_=re.compile('player-46-'))
 

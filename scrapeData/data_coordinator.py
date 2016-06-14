@@ -6,6 +6,7 @@ from fixData import teamElo
 
 
 def main(year: str):
+    print("Starting.")
     teams = nba.get_team_abbreviations()
 
 
@@ -13,7 +14,6 @@ def main(year: str):
     rosters_dbos = [item for sublist in rosters for item in sublist]
 
     db.save_rosters(rosters_dbos)
-
 
     team_game_ids_map = {team: nba.get_game_ids(team, year) for team in teams}
 

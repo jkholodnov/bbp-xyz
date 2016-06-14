@@ -6,7 +6,7 @@ import os
 print(os.path.dirname(os.path.abspath(__file__)))
 print(os.getcwd())
 
-con = lite.connect('./predict.db', isolation_level=None)
+con = lite.connect('../predict.db', isolation_level=None)
 
 
 def save_games(games: list) -> None:
